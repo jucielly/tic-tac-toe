@@ -31,8 +31,9 @@ body {
     border: 1px solid black;
     display: flex;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
     position: relative;
+    cursor: pointer;
 }
 
 .cell:first-child,
@@ -52,16 +53,17 @@ body {
 .cell:last-child,
 .cell:nth-child(8),
 .cell:nth-child(7) {
-   border-bottom: none;
+    border-bottom: none;
 }
 
 .cell.x::before,
 .cell.x::after {
     content: "";
     position: absolute;
-    width: calc(var(--mark-size)* .15);
+    width: calc(var(--mark-size)* .1);
     height: var(--mark-size);
     background-color: crimson;
+    border-radius: 5px;
 }
 
 .cell.x::before {
@@ -74,5 +76,25 @@ body {
 
 .cell.circle::before,
 .cell.circle::after {
-content: "";
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+ 
+}
+
+.cell.circle::before {
+    height: var(--mark-size);
+    width: var(--mark-size);
+    background-color: darkcyan;
+}
+
+.cell.circle::after {
+    height: calc(var(--mark-size) * .84);
+    width: calc(var(--mark-size) * .84);
+    background-color: white;
+}
+
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
 }
