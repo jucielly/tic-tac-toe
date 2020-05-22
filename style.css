@@ -9,6 +9,10 @@
     --mark-size: calc(var(--cell-size)* .9);
 }
 
+html {
+    font-family: 'Press Start 2P', cursive;
+}
+
 body {
     margin: 0;
 }
@@ -68,7 +72,9 @@ body {
 
 
 .cell.circle::before
-/*.cell.circle::after*/ {
+
+/*.cell.circle::after*/
+    {
     background-color: darkcyan;
 }
 
@@ -87,7 +93,7 @@ body {
     width: calc(var(--mark-size)* .1);
     height: var(--mark-size);
     border-radius: 5px;
-   
+
 }
 
 .cell.x::before,
@@ -103,19 +109,19 @@ body {
 .cell.circle::before,
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::after,
-.board.circle .cell:not(.x):not(.circle):hover::before{
+.board.circle .cell:not(.x):not(.circle):hover::before {
     content: "";
     position: absolute;
     border-radius: 50%;
-  
+
 
 }
 
 .cell.circle::before,
-.board.circle .cell:not(.x):not(.circle):hover::before{
+.board.circle .cell:not(.x):not(.circle):hover::before {
     height: var(--mark-size);
     width: var(--mark-size);
-   
+
 }
 
 .cell.circle::after,
@@ -123,4 +129,42 @@ body {
     height: calc(var(--mark-size) * .84);
     width: calc(var(--mark-size) * .84);
     background-color: white;
+}
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+}
+
+.winning-message button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: .3em;
+    background-color:#3626A7;
+    color: wheat;
+    border: none;
+    padding: .5em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.winning-message button:focus {
+    outline: none;
+}
+
+.winning-message button:hover {
+    background-color: #20178B;
+}
+
+.winning-message.show {
+    display: flex;
 }
